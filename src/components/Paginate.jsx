@@ -1,7 +1,4 @@
-const Navigation = ({ bookmarks, changePage, currentPage }) => {
-  //Get total # pages, round up
-  let totalPages = Math.ceil(bookmarks.length / 20);
-
+const Navigation = ({ totalPages, changePage, currentPage, navPage }) => {
   //Return nothing if less than 20 bookmarks
   if (!totalPages) {
     return;
@@ -13,11 +10,13 @@ const Navigation = ({ bookmarks, changePage, currentPage }) => {
     pages.push(i);
   }
 
-  console.log(currentPage);
-  console.log(pages);
-
   return (
     <ul className="navigation">
+      {currentPage <= totalPages && currentPage > 1 && (
+        <li className="navigation__link" onClick={() => navPage(0)}>
+          &lt;
+        </li>
+      )}
       {pages.map((page) => (
         <li
           key={page}
@@ -31,6 +30,11 @@ const Navigation = ({ bookmarks, changePage, currentPage }) => {
           {page}
         </li>
       ))}
+      {currentPage < totalPages && (
+        <li className="navigation__link" onClick={() => navPage(1)}>
+          &gt;
+        </li>
+      )}
     </ul>
   );
 };

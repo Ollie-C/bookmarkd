@@ -14,8 +14,18 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
     lastBookmarkIndex
   );
 
+  //Get total # pages, round up
+  let totalPages = Math.ceil(bookmarks.length / 20);
+
   const changePage = (page) => {
     setCurrentPage(page);
+  };
+
+  const navPage = (direction) => {
+    if (direction) {
+      return setCurrentPage(currentPage + 1);
+    }
+    return setCurrentPage(currentPage - 1);
   };
 
   if (!bookmarks) {
@@ -44,8 +54,10 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
       </div>
       <Navigation
         bookmarks={bookmarks}
+        totalPages={totalPages}
         changePage={changePage}
         currentPage={currentPage}
+        navPage={navPage}
       />
     </section>
   );
