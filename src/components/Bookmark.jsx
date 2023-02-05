@@ -1,5 +1,5 @@
-const Bookmark = ({ bookmarks, deleteBookmark }) => {
-  const bookmark = bookmarks.map((bookmark) => {
+const Bookmark = ({ currentBookmarks, deleteBookmark }) => {
+  const bookmark = currentBookmarks.map((bookmark) => {
     return (
       <div className="bookmark" key={bookmark.id}>
         <div className="bookmark__content">
