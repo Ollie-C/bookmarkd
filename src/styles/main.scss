@@ -57,6 +57,7 @@ main {
   }
 
   &__cta {
+    background-color: #fff;
     padding: 0.5rem 0;
     color: #000;
     transition: all 1s ease;
@@ -79,5 +80,77 @@ main {
     font-size: 0.7rem;
     letter-spacing: 2px;
     padding: 0;
+  }
+}
+
+//Bookmarks
+.bookmarks {
+  padding: 1rem 0;
+
+  &__title {
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 0.5rem 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+
+    @include tablet {
+      justify-content: space-between;
+    }
+  }
+}
+
+.bookmark {
+  width: 90%;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin: 0.3rem;
+  padding: 0 0.5rem;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @include tablet {
+      width: 50%;
+    }
+
+    @include desktop {
+      width: 25%;
+    }
+  }
+
+  &__title {
+    width: 40%;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  &__url {
+    width: 40%;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  &__delete-container {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__delete {
+    text-align: center;
+    font-weight: 800;
+    font-size: 1rem;
   }
 }

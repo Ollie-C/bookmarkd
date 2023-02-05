@@ -25,14 +25,16 @@ const Bookmarks = ({ bookmarks, deleteBookmark }) => {
   return (
     <section className="bookmarks">
       <h2 className="bookmarks__title">Your Bookmarks</h2>
-      {bookmarks.length > 0 ? (
-        <Bookmark
-          currentBookmarks={currentBookmarks}
-          deleteBookmark={deleteBookmark}
-        />
-      ) : (
-        <p>You haven't saved anything yet</p>
-      )}
+      <div className="bookmarks__container">
+        {bookmarks.length > 0 ? (
+          <Bookmark
+            currentBookmarks={currentBookmarks}
+            deleteBookmark={deleteBookmark}
+          />
+        ) : (
+          <p>You haven't saved anything yet</p>
+        )}
+      </div>
       <Navigation bookmarks={bookmarks} changePage={changePage} />
     </section>
   );
