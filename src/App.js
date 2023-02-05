@@ -9,27 +9,37 @@ import "./main.scss";
 function App() {
   const [newBookmark, setNewBookmark] = useState({});
   const [bookmarks, setBookmarks] = useState([]);
+  const [error, setError] = useState(null);
 
   const handleChange = ({ target }) => {
     setNewBookmark({ ...newBookmark, [target.name]: target.value, id: v4() });
   };
 
-  // const validUrl = (url) => {
-  //   try {
-  //     if (new URL(url)) {
-  //       return true;
-  //     }
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // };
+  //Check if URL against URL constructor to return boolean
+  const validUrl = (url) => {
+    try {
+      if (new URL(url)) {
+        return true;
+      }
+    } catch (e) {
+      return false;
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //Validation
+    if (!newBookmark.title) {
+      return setError("title");
+    }
+    if (!validUrl(newBookmark.url)) {
+      return setError("url");
+    }
     //On form submit, adds submitted bookmark to bookmarks saved in state
     setBookmarks([newBookmark, ...bookmarks]);
-    //Reset form fields
+    //Resets
     setNewBookmark({});
+    setError(null);
   };
 
   const deleteBookmark = (id) => {
@@ -57,6 +67,7 @@ function App() {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         newBookmark={newBookmark}
+        error={error}
       />
       <Bookmarks bookmarks={bookmarks} deleteBookmark={deleteBookmark} />
     </main>

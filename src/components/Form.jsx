@@ -1,4 +1,4 @@
-const Form = ({ handleChange, handleSubmit, newBookmark }) => {
+const Form = ({ handleChange, handleSubmit, newBookmark, error }) => {
   return (
     <form onSubmit={handleSubmit} className="form">
       <div className="form__section">
@@ -12,6 +12,7 @@ const Form = ({ handleChange, handleSubmit, newBookmark }) => {
           onChange={handleChange}
           value={newBookmark.title || ""}
         />
+        {error === "title" && <p className="form__error">Give it a title!</p>}
       </div>
       <div className="form__section">
         <label htmlFor="url" className="form__label">
@@ -24,6 +25,7 @@ const Form = ({ handleChange, handleSubmit, newBookmark }) => {
           onChange={handleChange}
           value={newBookmark.url || ""}
         />
+        {error === "url" && <p className="form__error">Needs to be a URL</p>}
       </div>
       <button className="form__cta">Save!</button>
     </form>
