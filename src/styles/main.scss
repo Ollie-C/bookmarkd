@@ -209,11 +209,21 @@ main {
     border-radius: 8px;
     padding: 0.5rem 1rem;
     border: 1px solid #e4e2e2a4;
-
+    transition: all 1s ease;
     &:hover {
       cursor: pointer;
       background-color: #e4e2e2a4;
-      border: none;
+      border: 1px solid rgba(0, 0, 0, 0.836);
     }
+  }
+
+  &__link--active {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.836);
+    font-weight: 800;
+    margin: 0.5rem;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    border: #fff;
   }
 }

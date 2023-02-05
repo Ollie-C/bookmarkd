@@ -1,4 +1,4 @@
-const Navigation = ({ bookmarks, changePage }) => {
+const Navigation = ({ bookmarks, changePage, currentPage }) => {
   //Get total # pages, round up
   let totalPages = Math.ceil(bookmarks.length / 20);
 
@@ -13,12 +13,19 @@ const Navigation = ({ bookmarks, changePage }) => {
     pages.push(i);
   }
 
+  console.log(currentPage);
+  console.log(pages);
+
   return (
     <ul className="navigation">
       {pages.map((page) => (
         <li
           key={page}
-          className="navigation__link"
+          className={
+            page == currentPage
+              ? "navigation__link--active"
+              : "navigation__link"
+          }
           onClick={() => changePage(page)}
         >
           {page}

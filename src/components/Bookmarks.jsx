@@ -42,7 +42,11 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
           <p className="bookmarks__error">You haven't saved anything yet.</p>
         )}
       </div>
-      <Navigation bookmarks={bookmarks} changePage={changePage} />
+      <Navigation
+        bookmarks={bookmarks}
+        changePage={changePage}
+        currentPage={currentPage}
+      />
     </section>
   );
 };
