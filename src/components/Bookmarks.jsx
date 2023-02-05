@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Bookmark from "./Bookmark";
 import Navigation from "./Paginate";
+import { motion } from "framer-motion";
 
 const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
   //Pagination
@@ -17,10 +18,12 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
   //Get total # pages, round up
   let totalPages = Math.ceil(bookmarks.length / 20);
 
+  //Numbered navigation
   const changePage = (page) => {
     setCurrentPage(page);
   };
 
+  //Arrow navigation
   const navPage = (direction) => {
     if (direction) {
       return setCurrentPage(currentPage + 1);
@@ -36,13 +39,19 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
     <section className="bookmarks">
       <h2 className="bookmarks__title">YOUR BOOKMARKS</h2>
       {bookmarks.length > 0 ? (
-        <p className="bookmarks__clear" onClick={() => reset()}>
-          CLEAR ALL
-        </p>
+        <div className="bookmarks__clear-container">
+          <p className="bookmarks__clear" onClick={() => reset()}>
+            CLEAR ALL
+          </p>
+        </div>
       ) : (
         ""
       )}
-      <div className="bookmarks__container">
+      <motion.div
+        className="bookmarks__container"
+        whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+        transition={{ duration: 1 }}
+      >
         {bookmarks.length > 0 ? (
           <Bookmark
             currentBookmarks={currentBookmarks}
@@ -51,7 +60,7 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
         ) : (
           <p className="bookmarks__error">You haven't saved anything yet.</p>
         )}
-      </div>
+      </motion.div>
       <Navigation
         bookmarks={bookmarks}
         totalPages={totalPages}

@@ -29,7 +29,9 @@ const Form = ({ handleChange, handleSubmit, newBookmark, error }) => {
       <div className="form__error-container">
         {error && (
           <p className="form__error">
-            {error === "url" ? "NEEDS TO BE A URL!" : "GIVE IT A TITLE!"}
+            {error === "url" ? "NEEDS TO BE A URL!" : ""}
+            {error === "title" ? "GIVE IT A TITLE!" : ""}
+            {error === "repeat" ? "BOOKMARK ALREADY EXISTS!" : ""}
           </p>
         )}
       </div>

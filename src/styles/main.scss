@@ -3,20 +3,17 @@
 
 header {
   width: 100%;
-  padding: 2rem 0;
+  padding: 1.8rem 0;
   text-align: center;
   height: 8vh;
 }
 //Main
 main {
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @include tablet {
-    padding: 1rem 2rem;
-  }
   @include desktop {
     padding: 1rem 6rem;
   }
@@ -55,8 +52,13 @@ main {
     width: 100%;
     border-radius: 8px;
     border: none;
+
+    @include tablet {
+      width: 60%;
+    }
+
     @include desktop {
-      width: 50%;
+      width: 40%;
     }
   }
 
@@ -68,12 +70,16 @@ main {
 
   &__cta {
     background-color: #fff;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     color: #000;
     transition: background-color 1s ease;
     &:hover {
       color: #fff;
       background-color: inherit;
+    }
+
+    @include tablet {
+      padding: 0.8rem 0;
     }
   }
 
@@ -101,12 +107,16 @@ main {
     text-align: center;
     font-size: 0.9rem;
     letter-spacing: 2px;
-    padding-top: 0.5rem;
+    padding-top: 0.3rem;
     color: #e4e2e2a4;
   }
 
+  &__clear-container {
+    display: flex;
+    justify-content: center;
+  }
+
   &__clear {
-    text-align: center;
     font-size: 0.7rem;
     letter-spacing: 1px;
     margin: 0;

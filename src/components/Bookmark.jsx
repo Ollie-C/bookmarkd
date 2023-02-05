@@ -19,6 +19,7 @@ const Bookmark = ({ currentBookmarks, deleteBookmark }) => {
         <a
           href={bookmark.url}
           target="_blank"
+          rel="noreferrer"
           className="bookmark"
           key={bookmark.id}
         >

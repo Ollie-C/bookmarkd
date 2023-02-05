@@ -21,7 +21,7 @@ const Navigation = ({ totalPages, changePage, currentPage, navPage }) => {
         <li
           key={page}
           className={
-            page == currentPage
+            page === currentPage
               ? "navigation__link--active"
               : "navigation__link"
           }

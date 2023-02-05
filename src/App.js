@@ -26,6 +26,11 @@ function App() {
     }
   };
 
+  //Check if bookmark already exists
+  const repeated = (url) => {
+    return bookmarks.filter((bookmark) => bookmark.url === url).length > 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     //Validation
@@ -34,6 +39,10 @@ function App() {
     }
     if (!validUrl(newBookmark.url)) {
       return setError("url");
+    }
+
+    if (repeated(newBookmark.url)) {
+      return setError("repeat");
     }
     //On form submit, adds submitted bookmark to bookmarks saved in state
     setBookmarks([newBookmark, ...bookmarks]);
