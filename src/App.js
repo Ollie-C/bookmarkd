@@ -4,7 +4,7 @@ import { v4 } from "uuid";
 import Form from "./components/Form";
 import Bookmarks from "./components/Bookmarks";
 //Styles
-import "./main.scss";
+import "./styles/main.scss";
 
 function App() {
   const [newBookmark, setNewBookmark] = useState({});

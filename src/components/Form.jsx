@@ -3,7 +3,7 @@ const Form = ({ handleChange, handleSubmit, newBookmark, error }) => {
     <form onSubmit={handleSubmit} className="form">
       <div className="form__section">
         <label htmlFor="name" className="form__label">
-          title
+          TITLE
         </label>
         <input
           type="text"
@@ -12,7 +12,6 @@ const Form = ({ handleChange, handleSubmit, newBookmark, error }) => {
           onChange={handleChange}
           value={newBookmark.title || ""}
         />
-        {error === "title" && <p className="form__error">Give it a title!</p>}
       </div>
       <div className="form__section">
         <label htmlFor="url" className="form__label">
@@ -25,9 +24,15 @@ const Form = ({ handleChange, handleSubmit, newBookmark, error }) => {
           onChange={handleChange}
           value={newBookmark.url || ""}
         />
-        {error === "url" && <p className="form__error">Needs to be a URL</p>}
       </div>
-      <button className="form__cta">Save!</button>
+      <button className="form__cta">SAVE!</button>
+      <div className="form__error-container">
+        {error && (
+          <p className="form__error">
+            {error === "url" ? "NEEDS TO BE A URL!" : "GIVE IT A TITLE!"}
+          </p>
+        )}
+      </div>
     </form>
   );
 };
