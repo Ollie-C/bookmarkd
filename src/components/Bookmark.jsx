@@ -1,5 +1,19 @@
 const Bookmark = ({ currentBookmarks, deleteBookmark }) => {
   const bookmark = currentBookmarks.map((bookmark) => {
+    //Last minute solution for longer title and url
+    const croppedTitle = (word) => {
+      if (word.length > 7) {
+        return `${word.substring(0, 6)}...`;
+      }
+      return word;
+    };
+    const croppedUrl = (url) => {
+      if (url.length > 25) {
+        return `${url.substring(11, 30)}...`;
+      }
+      return `${url.substring(11, url.length)}`;
+    };
+
     return (
       <div className="bookmark__container">
         <a
@@ -8,8 +22,8 @@ const Bookmark = ({ currentBookmarks, deleteBookmark }) => {
           className="bookmark"
           key={bookmark.id}
         >
-          <h3 className="bookmark__title">{bookmark.title}</h3>
-          <p className="bookmark__url">{bookmark.url}</p>
+          <h3 className="bookmark__title">{croppedTitle(bookmark.title)}</h3>
+          <p className="bookmark__url">{croppedUrl(bookmark.url)}</p>
         </a>
         <div className="bookmark__delete-container">
           <p
