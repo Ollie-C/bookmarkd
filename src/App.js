@@ -63,8 +63,10 @@ function App() {
   //Get bookmarks from localStorage, update state - on rerender
   useEffect(() => {
     const savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-    if (savedBookmarks.length > 0) {
-      setBookmarks(savedBookmarks);
+    if (savedBookmarks) {
+      if (savedBookmarks.length > 0) {
+        setBookmarks(savedBookmarks);
+      }
     }
   }, []);
 
