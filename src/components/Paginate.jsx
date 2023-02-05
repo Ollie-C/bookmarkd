@@ -1,4 +1,4 @@
-const Navigation = ({ bookmarks }) => {
+const Navigation = ({ bookmarks, changePage }) => {
   //Get total # pages, round up
   let totalPages = Math.ceil(bookmarks.length / 20);
 
@@ -7,7 +7,7 @@ const Navigation = ({ bookmarks }) => {
     return;
   }
 
-  //
+  //Creates numbered pages array
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
@@ -16,7 +16,13 @@ const Navigation = ({ bookmarks }) => {
   return (
     <ul className="navigation">
       {pages.map((page) => (
-        <li className="navigation__link">{page}</li>
+        <li
+          key={page}
+          className="navigation__link"
+          onClick={() => changePage(page)}
+        >
+          {page}
+        </li>
       ))}
     </ul>
   );

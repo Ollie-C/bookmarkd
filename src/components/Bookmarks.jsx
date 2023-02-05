@@ -14,9 +14,14 @@ const Bookmarks = ({ bookmarks, deleteBookmark }) => {
     lastBookmarkIndex
   );
 
+  const changePage = (page) => {
+    setCurrentPage(page);
+  };
+
   if (!bookmarks) {
     return <p>Loading . . . </p>;
   }
+
   return (
     <section className="bookmarks">
       <h2 className="bookmarks__title">Your Bookmarks</h2>
@@ -28,7 +33,7 @@ const Bookmarks = ({ bookmarks, deleteBookmark }) => {
       ) : (
         <p>You haven't saved anything yet</p>
       )}
-      <Navigation bookmarks={bookmarks} />
+      <Navigation bookmarks={bookmarks} changePage={changePage} />
     </section>
   );
 };
