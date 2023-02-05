@@ -4,11 +4,16 @@
 //Main
 main {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   @include tablet {
     padding: 1rem 2rem;
   }
   @include desktop {
     padding: 1rem 6rem;
+    height: 100vh;
   }
 
   h1 {
@@ -113,6 +118,12 @@ main {
   align-items: center;
   margin: 0.3rem;
   padding: 0 0.5rem;
+  transition: all 1s ease;
+  &:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.836);
+  }
 
   &__container {
     display: flex;
@@ -146,11 +157,37 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__delete {
     text-align: center;
     font-weight: 800;
     font-size: 1rem;
+  }
+}
+
+//Navigation
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
+    justify-content: flex-end;
+  }
+
+  &__link {
+    font-weight: 800;
+    margin: 0.5rem;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background-color: #e4e2e2a4;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
