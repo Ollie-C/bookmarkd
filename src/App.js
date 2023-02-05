@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 } from "uuid";
 //Components
 import Form from "./components/Form";
@@ -36,6 +36,20 @@ function App() {
     let updatedBookmarks = bookmarks.filter((bookmark) => bookmark.id !== id);
     setBookmarks(updatedBookmarks);
   };
+
+  //Get bookmarks from localStorage, update state - on rerender
+  useEffect(() => {
+    const savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    if (savedBookmarks.length > 0) {
+      setBookmarks(savedBookmarks);
+    }
+  }, []);
+
+  //Set bookmarks in localStorage from state - on bookmarks state change
+  useEffect(() => {
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  }, [bookmarks]);
+
   return (
     <main>
       <h1>bookmarkd</h1>
