@@ -8,8 +8,8 @@ const Bookmark = ({ currentBookmarks, deleteBookmark }) => {
       return word;
     };
     const croppedUrl = (url) => {
-      if (url.length > 25) {
-        return `${url.substring(7, 30)}...`;
+      if (url.length > 24) {
+        return `${url.substring(7, 24)}...`;
       }
       return `${url.substring(7, url.length)}`;
     };
