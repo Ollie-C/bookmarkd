@@ -47,6 +47,10 @@ function App() {
     setBookmarks(updatedBookmarks);
   };
 
+  const reset = () => {
+    setBookmarks([]);
+  };
+
   //Get bookmarks from localStorage, update state - on rerender
   useEffect(() => {
     const savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
@@ -61,16 +65,24 @@ function App() {
   }, [bookmarks]);
 
   return (
-    <main>
-      <h1>bookmarkd</h1>
-      <Form
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        newBookmark={newBookmark}
-        error={error}
-      />
-      <Bookmarks bookmarks={bookmarks} deleteBookmark={deleteBookmark} />
-    </main>
+    <>
+      <header>
+        <h1>bookmarkd</h1>
+      </header>
+      <main>
+        <Form
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          newBookmark={newBookmark}
+          error={error}
+        />
+        <Bookmarks
+          bookmarks={bookmarks}
+          deleteBookmark={deleteBookmark}
+          reset={reset}
+        />
+      </main>
+    </>
   );
 }
 

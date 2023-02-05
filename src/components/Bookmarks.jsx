@@ -2,7 +2,7 @@ import { useState } from "react";
 import Bookmark from "./Bookmark";
 import Navigation from "./Paginate";
 
-const Bookmarks = ({ bookmarks, deleteBookmark }) => {
+const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
   //Pagination
   //Set default state page as 1
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +24,14 @@ const Bookmarks = ({ bookmarks, deleteBookmark }) => {
 
   return (
     <section className="bookmarks">
-      <h2 className="bookmarks__title">Your Bookmarks</h2>
+      <h2 className="bookmarks__title">YOUR BOOKMARKS</h2>
+      {bookmarks.length > 0 ? (
+        <p className="bookmarks__clear" onClick={() => reset()}>
+          CLEAR ALL
+        </p>
+      ) : (
+        ""
+      )}
       <div className="bookmarks__container">
         {bookmarks.length > 0 ? (
           <Bookmark
@@ -32,7 +39,7 @@ const Bookmarks = ({ bookmarks, deleteBookmark }) => {
             deleteBookmark={deleteBookmark}
           />
         ) : (
-          <p>You haven't saved anything yet</p>
+          <p className="bookmarks__error">You haven't saved anything yet.</p>
         )}
       </div>
       <Navigation bookmarks={bookmarks} changePage={changePage} />
