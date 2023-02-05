@@ -9,9 +9,9 @@ const Bookmark = ({ currentBookmarks, deleteBookmark }) => {
     };
     const croppedUrl = (url) => {
       if (url.length > 25) {
-        return `${url.substring(11, 30)}...`;
+        return `${url.substring(7, 30)}...`;
       }
-      return `${url.substring(11, url.length)}`;
+      return `${url.substring(7, url.length)}`;
     };
 
     return (

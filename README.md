@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# bookmarkd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link: https://bookmarkd-chi.vercel.app/
+Github: https://github.com/Ollie-C/bookmarkd
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+bookmarkd is a light-weight bookmark manager that uses localStorage to track a user's saved bookmarks and allows them to manage their links. Built in React.
 
-### `npm start`
+### Get started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+npm i to install all dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Features
 
-### `npm test`
+1. Displays a form that lets a user submit a link. The form validates the input is a valid URL and doesn't already exist
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Displays a list of links with pagination
 
-### `npm run build`
+3. Users can remove links and clear all
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Links persist on page reload
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. App has minimalist design with light use of framer-motion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Limitations
 
-### `npm run eject`
+- User is currently unable to edit links
+- Currently no search/filter functionality
+- No testing design beyond a certain number of pages (navigation bar is not limited)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Notes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project uses CRA for basic linting and webpack configuration.
