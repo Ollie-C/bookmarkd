@@ -1,4 +1,4 @@
-const Form = ({ handleChange, handleSubmit }) => {
+const Form = ({ handleChange, handleSubmit, newBookmark }) => {
   return (
     <form onSubmit={handleSubmit} className="form">
       <div className="form__section">
@@ -10,6 +10,7 @@ const Form = ({ handleChange, handleSubmit }) => {
           className="form__input"
           name="title"
           onChange={handleChange}
+          value={newBookmark.title || ""}
         />
       </div>
       <div className="form__section">
@@ -21,6 +22,7 @@ const Form = ({ handleChange, handleSubmit }) => {
           className="form__input"
           name="url"
           onChange={handleChange}
+          value={newBookmark.url || ""}
         />
       </div>
       <button className="form__cta">Save!</button>
