@@ -14,15 +14,15 @@ function App() {
     setNewBookmark({ ...newBookmark, [target.name]: target.value, id: v4() });
   };
 
-  const validUrl = (url) => {
-    try {
-      if (new URL(url)) {
-        return true;
-      }
-    } catch (e) {
-      return false;
-    }
-  };
+  // const validUrl = (url) => {
+  //   try {
+  //     if (new URL(url)) {
+  //       return true;
+  //     }
+  //   } catch (e) {
+  //     return false;
+  //   }
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +30,11 @@ function App() {
     setBookmarks([newBookmark, ...bookmarks]);
     //Reset form fields
     setNewBookmark({});
+  };
+
+  const deleteBookmark = (id) => {
+    let updatedBookmarks = bookmarks.filter((bookmark) => bookmark.id !== id);
+    setBookmarks(updatedBookmarks);
   };
   return (
     <main>
@@ -39,7 +44,7 @@ function App() {
         handleSubmit={handleSubmit}
         newBookmark={newBookmark}
       />
-      <Bookmarks bookmarks={bookmarks} />
+      <Bookmarks bookmarks={bookmarks} deleteBookmark={deleteBookmark} />
     </main>
   );
 }
