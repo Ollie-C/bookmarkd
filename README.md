@@ -29,7 +29,7 @@ npm i to install all dependencies
 
 - User is currently unable to edit links
 - Currently no search/filter functionality
-- No testing design beyond a certain number of pages (navigation bar is not limited)
+- Pagination navbar not capped, may cause aesthetic issues if number of pages goes beyond 6 or 7
 
 ### Notes
 
