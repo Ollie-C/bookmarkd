@@ -3,6 +3,8 @@
 Link: https://bookmarkd-chi.vercel.app/
 Github: https://github.com/Ollie-C/bookmarkd
 
+Note: main branch is the current deployed version, for completion of challenge. main-extended is an experimental branch
+
 ## Introduction
 
 bookmarkd is a light-weight bookmark manager that uses localStorage to track a user's saved bookmarks and allows them to manage their links. Built in React.
