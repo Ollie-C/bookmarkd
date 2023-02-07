@@ -35,6 +35,8 @@ I believe a bookmark manager should be something a user will want to come back t
 
 5. App has minimalist design with light use of framer-motion
 
+6. App is designed for use over multiple media channels, including desktop, tablet and mobile
+
 ### Limitations
 
 - User is currently unable to edit links
