@@ -102,7 +102,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>bookmarkd</h1>
+        <h1>bookmark.d</h1>
       </header>
       <main>
         <Form

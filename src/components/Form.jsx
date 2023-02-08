@@ -26,7 +26,7 @@ const Form = ({ handleChange, handleSubmit, newBookmark, error }) => {
         />
         <div className="form__placeholder">https://</div>
       </div>
-      <button className="form__cta">SAVE!</button>
+      <button className="form__cta">SAVE</button>
       <div className="form__error-container">
         {error && (
           <p className="form__error">
