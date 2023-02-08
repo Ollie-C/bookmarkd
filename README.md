@@ -38,7 +38,8 @@ I believe a bookmark manager should be something a user will want to come back t
 6. App is designed for use over multiple media channels, including desktop, tablet and mobile
 
 ### Limitations
-**Address in newer version (main-extended)**
+
+**Addressed in newer version (main-extended)**
 
 - **User is currently unable to edit links**
 - Currently no search/filter functionality
