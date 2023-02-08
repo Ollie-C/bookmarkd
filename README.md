@@ -3,7 +3,9 @@
 Link: https://bookmarkd-chi.vercel.app/
 Github: https://github.com/Ollie-C/bookmarkd
 
-Note: main branch is the current deployed version, for completion of challenge completed within 5 hours. I'll be adding new features and refactoring in main-extended, so please check that out too if at all interested.
+**Update 06/02/23**: main branch is the current deployed version, for completion of challenge completed within 5 hours. I'll be adding new features and refactoring in main-extended, so please check that out too if at all interested.
+
+**Update 08/02/23**: As version 2 scales (which was never my original intention, got slightly carried away...), I'll have to restructure my folders and take a different approach with reusable components and sass structuring as well as implement context
 
 ## Introduction
 
