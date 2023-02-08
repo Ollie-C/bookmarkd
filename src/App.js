@@ -10,9 +10,12 @@ function App() {
   const [newBookmark, setNewBookmark] = useState({});
   const [bookmarks, setBookmarks] = useState([]);
   const [error, setError] = useState(null);
+  const [editing, setEditing] = useState(null);
 
+  //Set new bookmark
   const handleChange = ({ target }) => {
-    setNewBookmark({ ...newBookmark, [target.name]: target.value, id: v4() });
+    let { name, value } = target;
+    setNewBookmark({ ...newBookmark, [name]: value, id: v4() });
   };
 
   //Check if URL against URL constructor to return boolean
@@ -31,8 +34,10 @@ function App() {
     return bookmarks.filter((bookmark) => bookmark.url === url).length > 0;
   };
 
+  //ADD bookmark
   const handleSubmit = (e) => {
     e.preventDefault();
+    newBookmark.url = "https://" + newBookmark.url;
     //Validation
     if (!newBookmark.title) {
       return setError("title");
@@ -51,11 +56,30 @@ function App() {
     setError(null);
   };
 
+  //UPDATE bookmark
+  const editBookmark = (id, newUrl, title) => {
+    const editedBookmark = {
+      title: title,
+      id: id,
+      url: "https://" + newUrl,
+    };
+
+    //Rewrite data
+    const updatedBookmarks = bookmarks.map((bookmark) =>
+      bookmark.id === id ? editedBookmark : bookmark
+    );
+    setBookmarks(updatedBookmarks);
+    //Reset editing state
+    setEditing(null);
+  };
+
+  //DELETE bookmark by ID
   const deleteBookmark = (id) => {
     let updatedBookmarks = bookmarks.filter((bookmark) => bookmark.id !== id);
     setBookmarks(updatedBookmarks);
   };
 
+  //Clear all by resetting value in state
   const reset = () => {
     setBookmarks([]);
   };
@@ -91,6 +115,9 @@ function App() {
           bookmarks={bookmarks}
           deleteBookmark={deleteBookmark}
           reset={reset}
+          editing={editing}
+          setEditing={setEditing}
+          editBookmark={editBookmark}
         />
       </main>
     </>

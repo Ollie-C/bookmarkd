@@ -24,6 +24,7 @@ const Form = ({ handleChange, handleSubmit, newBookmark, error }) => {
           onChange={handleChange}
           value={newBookmark.url || ""}
         />
+        <div className="form__placeholder">https://</div>
       </div>
       <button className="form__cta">SAVE!</button>
       <div className="form__error-container">

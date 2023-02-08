@@ -3,7 +3,14 @@ import Bookmark from "./Bookmark";
 import Navigation from "./Paginate";
 import { motion } from "framer-motion";
 
-const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
+const Bookmarks = ({
+  bookmarks,
+  deleteBookmark,
+  reset,
+  editing,
+  editBookmark,
+  setEditing,
+}) => {
   //Pagination
   //Set default state page as 1
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,6 +21,7 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
     firstBookmarkIndex,
     lastBookmarkIndex
   );
+  const [mode, setMode] = useState(null);
 
   //Get total # pages, round up
   let totalPages = Math.ceil(bookmarks.length / 20);
@@ -39,8 +47,30 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
     <section className="bookmarks">
       <h2 className="bookmarks__title">YOUR BOOKMARKS</h2>
       {bookmarks.length > 0 ? (
-        <div className="bookmarks__clear-container">
-          <p className="bookmarks__clear" onClick={() => reset()}>
+        <div className="bookmarks__option-container">
+          <p
+            className={
+              mode === "edit"
+                ? "bookmarks__option bookmarks__option--active"
+                : "bookmarks__option"
+            }
+            onClick={() => (mode === "edit" ? setMode(null) : setMode("edit"))}
+          >
+            EDIT
+          </p>
+          <p
+            className={
+              mode === "delete"
+                ? "bookmarks__option bookmarks__option--active"
+                : "bookmarks__option"
+            }
+            onClick={() =>
+              mode === "delete" ? setMode(null) : setMode("delete")
+            }
+          >
+            DELETE
+          </p>
+          <p className="bookmarks__option" onClick={() => reset()}>
             CLEAR ALL
           </p>
         </div>
@@ -56,6 +86,10 @@ const Bookmarks = ({ bookmarks, deleteBookmark, reset }) => {
           <Bookmark
             currentBookmarks={currentBookmarks}
             deleteBookmark={deleteBookmark}
+            editing={editing}
+            editBookmark={editBookmark}
+            setEditing={setEditing}
+            mode={mode}
           />
         ) : (
           <p className="bookmarks__error">You haven't saved anything yet.</p>
