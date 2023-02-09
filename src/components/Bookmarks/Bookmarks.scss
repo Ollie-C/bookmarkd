@@ -7,8 +7,8 @@
   transition: all 1s ease;
 
   @include desktop {
-    min-height: 55vh;
-    max-height: 55vh;
+    min-height: 57vh;
+    max-height: 57vh;
     opacity: 70%;
     &:hover {
       box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
@@ -24,6 +24,45 @@
     letter-spacing: 2px;
     padding-top: 0.3rem;
     color: $primary-white;
+  }
+
+  &__toolbar {
+    @include flex(column, center, center);
+
+    @include desktop {
+      @include flex(row, space-between, center);
+    }
+  }
+
+  &__search-container {
+    position: relative;
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: center;
+
+    @include desktop {
+      text-align: left;
+      width: auto;
+      margin: 0 1rem;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    width: 15px;
+    margin: 0.4rem 0.4rem;
+  }
+
+  &__search {
+    width: 60%;
+    border-radius: 8px;
+    background: none;
+    padding: 0.4rem 2rem;
+    outline: 1px solid $secondary-grey;
+    color: $secondary-grey;
+    font-weight: lighter;
+    font-size: 0.8rem;
+    border: none;
   }
 
   &__option-container {

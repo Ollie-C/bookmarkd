@@ -5,6 +5,9 @@ import { Context } from "../../contexts/Context";
 import { cropTitle, cropUrl } from "../../utils/utils";
 //Styles
 import "./Bookmark.scss";
+//Icons
+import check from "../../assets/icons/check.svg";
+import edit from "../../assets/icons/edit.svg";
 
 const Bookmark = ({ currentBookmarks, mode }) => {
   const { editing, editBookmark, setEditing, deleteBookmark } =
