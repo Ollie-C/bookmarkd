@@ -43,24 +43,24 @@ const Bookmark = ({ currentBookmarks, mode }) => {
           {mode === "edit" && (
             <div className="bookmark__option-container">
               {editing === bookmark.id ? (
-                <p
+                <img
                   className="bookmark__option"
+                  src={check}
+                  alt="tick icon"
                   onClick={() =>
                     editBookmark(bookmark.id, updatedUrl, bookmark.title)
                   }
-                >
-                  OK
-                </p>
+                />
               ) : (
-                <p
+                <img
+                  src={edit}
+                  alt="edit icon"
                   className="bookmark__option"
                   onClick={() => {
                     setUpdatedUrl("");
                     setEditing(bookmark.id);
                   }}
-                >
-                  &lt;
-                </p>
+                />
               )}
             </div>
           )}
