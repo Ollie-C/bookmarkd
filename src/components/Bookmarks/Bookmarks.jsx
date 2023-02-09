@@ -1,42 +1,35 @@
-import { useState } from "react";
-import Bookmark from "./Bookmark";
-import Navigation from "./Paginate";
+//Context and State
+import { useContext, useState } from "react";
+import { Context } from "../../contexts/Context";
+//Utils
+import { getDisplayedBookmarks } from "../../utils/utils";
+//Components
+import Bookmark from "../Bookmark/Bookmark";
+import Navigation from "../Paginate/Paginate";
+//Packages
 import { motion } from "framer-motion";
+//Styles
+import "./Bookmarks.scss";
 
-const Bookmarks = ({
-  bookmarks,
-  deleteBookmark,
-  reset,
-  editing,
-  editBookmark,
-  setEditing,
-}) => {
-  //Pagination
-  //Set default state page as 1
-  const [currentPage, setCurrentPage] = useState(1);
-  //20 bookmarks per page
-  const lastBookmarkIndex = currentPage * 20;
-  const firstBookmarkIndex = lastBookmarkIndex - 20;
-  const currentBookmarks = bookmarks.slice(
-    firstBookmarkIndex,
-    lastBookmarkIndex
-  );
+const Bookmarks = () => {
+  const { bookmarks, resetBookmarks } = useContext(Context);
+  //Mode state - Editing, Deleting, Null (Standard)
   const [mode, setMode] = useState(null);
 
-  //Get total # pages, round up
-  let totalPages = Math.ceil(bookmarks.length / 20);
+  //Pagination - Set default state page as 1. 20 bookmarks per page
+  const [currentPage, setCurrentPage] = useState(1);
+  const displayedBookmarks = getDisplayedBookmarks(bookmarks, currentPage);
+  const totalPages = Math.ceil(bookmarks.length / 20);
 
-  //Numbered navigation
-  const changePage = (page) => {
-    setCurrentPage(page);
-  };
-
-  //Arrow navigation
-  const navPage = (direction) => {
-    if (direction) {
+  //Navigation
+  const changePage = (change) => {
+    if (change === "forward") {
       return setCurrentPage(currentPage + 1);
     }
-    return setCurrentPage(currentPage - 1);
+    if (change === "back") {
+      return setCurrentPage(currentPage - 1);
+    }
+    return setCurrentPage(change);
   };
 
   if (!bookmarks) {
@@ -70,7 +63,7 @@ const Bookmarks = ({
           >
             DELETE
           </p>
-          <p className="bookmarks__option" onClick={() => reset()}>
+          <p className="bookmarks__option" onClick={() => resetBookmarks()}>
             CLEAR ALL
           </p>
         </div>
@@ -83,24 +76,15 @@ const Bookmarks = ({
         transition={{ duration: 1 }}
       >
         {bookmarks.length > 0 ? (
-          <Bookmark
-            currentBookmarks={currentBookmarks}
-            deleteBookmark={deleteBookmark}
-            editing={editing}
-            editBookmark={editBookmark}
-            setEditing={setEditing}
-            mode={mode}
-          />
+          <Bookmark currentBookmarks={displayedBookmarks} mode={mode} />
         ) : (
           <p className="bookmarks__error">You haven't saved anything yet.</p>
         )}
       </motion.div>
       <Navigation
-        bookmarks={bookmarks}
         totalPages={totalPages}
-        changePage={changePage}
         currentPage={currentPage}
-        navPage={navPage}
+        changePage={changePage}
       />
     </section>
   );

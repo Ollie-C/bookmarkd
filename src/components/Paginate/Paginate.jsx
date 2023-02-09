@@ -1,4 +1,7 @@
-const Navigation = ({ totalPages, changePage, currentPage, navPage }) => {
+//Styles
+import "./Paginate.scss";
+
+const Navigation = ({ totalPages, currentPage, changePage }) => {
   //Return nothing if less than 20 bookmarks
   if (!totalPages) {
     return;
@@ -13,7 +16,7 @@ const Navigation = ({ totalPages, changePage, currentPage, navPage }) => {
   return (
     <ul className="navigation">
       {currentPage <= totalPages && currentPage > 1 && (
-        <li className="navigation__link" onClick={() => navPage(0)}>
+        <li className="navigation__link" onClick={() => changePage("back")}>
           &lt;
         </li>
       )}
@@ -31,7 +34,7 @@ const Navigation = ({ totalPages, changePage, currentPage, navPage }) => {
         </li>
       ))}
       {currentPage < totalPages && (
-        <li className="navigation__link" onClick={() => navPage(1)}>
+        <li className="navigation__link" onClick={() => changePage("forward")}>
           &gt;
         </li>
       )}

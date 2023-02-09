@@ -1,0 +1,36 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.navigation {
+  width: 100%;
+  @include flex(row, center, center);
+
+  @include tablet {
+    justify-content: flex-end;
+  }
+
+  &__link {
+    font-weight: 800;
+    margin: 0.5rem;
+    color: $primary-white;
+    border: 1px solid $secondary-grey;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 1s ease;
+    &:hover {
+      cursor: pointer;
+      background-color: $secondary-grey;
+      border: 1px solid $primary-grey;
+    }
+
+    &--active {
+      background-color: $primary-white;
+      color: $primary-grey;
+      font-weight: 800;
+      margin: 0.5rem;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      border: $primary-white;
+    }
+  }
+}

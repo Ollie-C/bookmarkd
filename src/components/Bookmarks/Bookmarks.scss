@@ -1,0 +1,62 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.bookmarks {
+  padding: 1rem 0;
+  border-radius: 8px;
+  transition: all 1s ease;
+
+  @include desktop {
+    min-height: 55vh;
+    max-height: 55vh;
+    opacity: 70%;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+        rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+        rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+      opacity: 100%;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    padding-top: 0.3rem;
+    color: $primary-white;
+  }
+
+  &__option-container {
+    @include flex(row, center, stretch);
+  }
+
+  &__option {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin: 0 1rem;
+
+    &:hover {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    &--active {
+      font-weight: 800;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+
+    @include tablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__error {
+    width: 100%;
+    text-align: center;
+  }
+}

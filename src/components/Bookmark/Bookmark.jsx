@@ -1,32 +1,20 @@
-import { useState } from "react";
+//Context and State
+import { useContext, useState } from "react";
+import { Context } from "../../contexts/Context";
+//Utils
+import { cropTitle, cropUrl } from "../../utils/utils";
+//Styles
+import "./Bookmark.scss";
 
-const Bookmark = ({
-  currentBookmarks,
-  deleteBookmark,
-  editing,
-  editBookmark,
-  setEditing,
-  mode,
-}) => {
+const Bookmark = ({ currentBookmarks, mode }) => {
+  const { editing, editBookmark, setEditing, deleteBookmark } =
+    useContext(Context);
+  //Saved input data
   const [updatedUrl, setUpdatedUrl] = useState("");
-
-  // Last minute solution for longer title and url
-  const croppedTitle = (word) => {
-    if (word.length > 8) {
-      return `${word.substring(0, 6)} ...`;
-    }
-    return word;
-  };
-  const croppedUrl = (url) => {
-    if (url.length > 18) {
-      return `${url.substring(0, 18)}...`;
-    }
-    return `${url.substring(0, url.length)}`;
-  };
 
   const bookmark = currentBookmarks.map((bookmark) => {
     return (
-      <div className="bookmark__container">
+      <div className="bookmark__container" key={bookmark.id}>
         {editing === bookmark.id ? (
           <input
             onChange={(e) => setUpdatedUrl(e.target.value)}
@@ -42,10 +30,8 @@ const Bookmark = ({
               className="bookmark"
               key={bookmark.id}
             >
-              <h3 className="bookmark__title">
-                {croppedTitle(bookmark.title)}
-              </h3>
-              <p className="bookmark__url">{croppedUrl(bookmark.url)}</p>
+              <h3 className="bookmark__title">{cropTitle(bookmark.title)}</h3>
+              <p className="bookmark__url">{cropUrl(bookmark.url)}</p>
             </a>
           </>
         )}

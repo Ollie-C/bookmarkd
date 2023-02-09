@@ -1,0 +1,74 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.bookmark {
+  width: 92%;
+  border: 1px solid $primary-white;
+  border-radius: 8px;
+  margin: 0.1rem;
+  padding: 0 0.8rem;
+  transition: all 1s ease;
+  @include flex(row, flex-start, center);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $primary-white;
+    color: $primary-grey;
+  }
+
+  &__container {
+    width: 100%;
+    @include flex(row, center, center);
+
+    @include tablet {
+      width: 50%;
+    }
+
+    @include desktop {
+      width: 25%;
+    }
+  }
+
+  &__title {
+    border-right: 2px solid $primary-white;
+    margin-right: 0.5rem;
+    width: 42%;
+  }
+
+  &__title,
+  &__url {
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+
+  &__url {
+    width: 57%;
+    color: $secondary-grey;
+  }
+
+  &__option-container {
+    width: 8%;
+    @include flex(row, center, center);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__option {
+    text-align: center;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+
+  &__input {
+    width: 80%;
+    border-radius: 8px;
+    border: none;
+    background: none;
+    border: 1px solid $primary-white;
+    padding: 0.7rem;
+    color: $primary-white;
+    margin-right: 0.5rem;
+  }
+}
