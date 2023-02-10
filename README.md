@@ -1,7 +1,8 @@
 # bookmarkd
 
-Link: https://bookmarkd-chi.vercel.app/
+Link: https://bookmarkd-app.vercel.app/
 Github: https://github.com/Ollie-C/bookmarkd
+**Version link:** https://bookmarkd-v2.vercel.app
 
 **Update 06/02/23**: main branch is the current deployed version, for completion of challenge completed within 5 hours. I'll be adding new features and refactoring in main-extended, so please check that out too if at all interested.
 
