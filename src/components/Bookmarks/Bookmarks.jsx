@@ -1,5 +1,5 @@
 //Context and State
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../contexts/Context";
 //Utils
 import { getDisplayedBookmarks } from "../../utils/utils";
@@ -16,7 +16,7 @@ import search from "../../assets/icons/search.svg";
 const Bookmarks = () => {
   const { bookmarks, resetBookmarks } = useContext(Context);
   //Filtered list for search
-  const [filteredBookmarks, setFilteredBookmarks] = useState(bookmarks);
+  const [filteredBookmarks, setFilteredBookmarks] = useState([]);
   //Mode state - Editing, Deleting, Null (Standard)
   const [mode, setMode] = useState(null);
 
@@ -47,6 +47,12 @@ const Bookmarks = () => {
     }
     return setCurrentPage(change);
   };
+
+  useEffect(() => {
+    if (bookmarks.length > 0) {
+      setFilteredBookmarks(bookmarks);
+    }
+  }, [bookmarks]);
 
   if (!bookmarks) {
     return <p>Loading . . . </p>;

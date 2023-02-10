@@ -40,7 +40,7 @@ const Form = () => {
 
     //Update state with new values
     setBookmarks([newBookmark, ...bookmarks]);
-
+    console.log(bookmarks);
     //Resets
     setNewBookmark({});
     setError(null);
