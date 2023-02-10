@@ -1,10 +1,16 @@
 # bookmarkd
 
+Original: 
+
 Link: https://bookmarkd-app.vercel.app/
 
 Github: https://github.com/Ollie-C/bookmarkd
 
-**Version 2:** https://bookmarkd-v2.vercel.app
+Version 2:
+
+Link: https://bookmarkd-v2.vercel.app
+
+Github: https://github.com/Ollie-C/bookmarkd/tree/main-extended
 
 **Update 06/02/23**: main branch is the current deployed version, for completion of challenge completed within 5 hours. I'll be adding new features and refactoring in main-extended, so please check that out too if at all interested.
 
