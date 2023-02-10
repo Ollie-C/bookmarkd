@@ -28,7 +28,9 @@ export const cropUrl = (url) => {
 //Form validation
 export const repeated = (bookmarks, url) => {
   //Check if already saved
-  return bookmarks.filter((bookmark) => bookmark.url === url).length > 0;
+  return (
+    bookmarks.filter((bookmark) => bookmark.url === "https://" + url).length > 0
+  );
 };
 
 export const validUrl = (url) => {

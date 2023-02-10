@@ -32,6 +32,7 @@ const Form = () => {
     if (!validUrl(newBookmark.url)) {
       return setError("url");
     }
+    // console.log(newBookmark.url);
     if (repeated(bookmarks, newBookmark.url)) {
       return setError("repeat");
     }
