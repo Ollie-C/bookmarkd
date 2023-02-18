@@ -5,12 +5,16 @@ import Form from "./components/Form/Form";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
 //Styles
 import "./styles/main.scss";
+//Logo
+import logo from "./assets/logo/bookmarkd-logo.jpg";
 
 function App() {
   return (
     <>
       <header>
-        <h1>bookmark.d</h1>
+        <div className="logo-container">
+          <img src={logo} alt="bookmarkd logo" className="logo" />
+        </div>
       </header>
       <ContextWrapper>
         <main>
